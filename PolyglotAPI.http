@@ -1,0 +1,6 @@
+@PolyglotAPI_HostAddress = http://localhost:5291
+
+GET {{PolyglotAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
