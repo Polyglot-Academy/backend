@@ -1,0 +1,29 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using PolyglotAPI.Entities;
+
+namespace PolyglotAPI.Data
+{
+    public class ProfessorConfiguration : IEntityTypeConfiguration<Professor>
+    {
+        public void Configure(EntityTypeBuilder<Professor> builder)
+        {
+            // Primary Key
+            builder.HasKey(p => p.Id);
+
+            // Property configurations
+            builder.Property(p => p.Nome)
+                .IsRequired()
+                .HasMaxLength(100);
+
+            builder.Property(p => p.Especializacao)
+                .HasMaxLength(150);
+
+            builder.Property(p => p.Experencia)
+                .IsRequired();
+
+            // Table name (optional)
+            builder.ToTable("Professores");
+        }
+    }
+}
