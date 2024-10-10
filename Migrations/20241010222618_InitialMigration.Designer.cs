@@ -12,7 +12,7 @@ using PolyglotAPI.Data;
 namespace PolyglotAPI.Migrations
 {
     [DbContext(typeof(PolyDBContext))]
-    [Migration("20241009174232_InitialMigration")]
+    [Migration("20241010222618_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -53,7 +53,7 @@ namespace PolyglotAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Alunos", (string)null);
+                    b.ToTable("Aluno", (string)null);
                 });
 
             modelBuilder.Entity("PolyglotAPI.Entities.Curso", b =>
@@ -92,7 +92,7 @@ namespace PolyglotAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Cursos", (string)null);
+                    b.ToTable("Curso", (string)null);
                 });
 
             modelBuilder.Entity("PolyglotAPI.Entities.Matricula", b =>
@@ -108,7 +108,7 @@ namespace PolyglotAPI.Migrations
 
                     b.HasKey("AlunoId", "CursoId");
 
-                    b.ToTable("Matriculas", (string)null);
+                    b.ToTable("Matricula", (string)null);
                 });
 
             modelBuilder.Entity("PolyglotAPI.Entities.Professor", b =>
@@ -134,7 +134,7 @@ namespace PolyglotAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Professores", (string)null);
+                    b.ToTable("Professor", (string)null);
                 });
 #pragma warning restore 612, 618
         }

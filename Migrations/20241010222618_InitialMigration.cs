@@ -16,7 +16,7 @@ namespace PolyglotAPI.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Alunos",
+                name: "Aluno",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -31,12 +31,12 @@ namespace PolyglotAPI.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Alunos", x => x.Id);
+                    table.PrimaryKey("PK_Aluno", x => x.Id);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Cursos",
+                name: "Curso",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -53,12 +53,12 @@ namespace PolyglotAPI.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Cursos", x => x.Id);
+                    table.PrimaryKey("PK_Curso", x => x.Id);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Matriculas",
+                name: "Matricula",
                 columns: table => new
                 {
                     AlunoId = table.Column<int>(type: "int", nullable: false),
@@ -67,12 +67,12 @@ namespace PolyglotAPI.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Matriculas", x => new { x.AlunoId, x.CursoId });
+                    table.PrimaryKey("PK_Matricula", x => new { x.AlunoId, x.CursoId });
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Professores",
+                name: "Professor",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -85,7 +85,7 @@ namespace PolyglotAPI.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Professores", x => x.Id);
+                    table.PrimaryKey("PK_Professor", x => x.Id);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
         }
@@ -94,16 +94,16 @@ namespace PolyglotAPI.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Alunos");
+                name: "Aluno");
 
             migrationBuilder.DropTable(
-                name: "Cursos");
+                name: "Curso");
 
             migrationBuilder.DropTable(
-                name: "Matriculas");
+                name: "Matricula");
 
             migrationBuilder.DropTable(
-                name: "Professores");
+                name: "Professor");
         }
     }
 }
