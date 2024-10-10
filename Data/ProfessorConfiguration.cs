@@ -19,7 +19,7 @@ namespace PolyglotAPI.Data
             builder.Property(p => p.Especializacao)
                 .HasMaxLength(150);
 
-            builder.Property(p => p.Experencia)
+            builder.Property(p => p.Experiencia)
                 .IsRequired();
 
             // Table name (optional)
