@@ -11,7 +11,6 @@ namespace PolyglotAPI.Data
             // Primary Key
             builder.HasKey(p => p.Id);
 
-            // Property configurations
             builder.Property(p => p.Nome)
                 .IsRequired()
                 .HasMaxLength(100);
@@ -22,7 +21,6 @@ namespace PolyglotAPI.Data
             builder.Property(p => p.Experiencia)
                 .IsRequired();
 
-            // Table name (optional)
             builder.ToTable("Professor");
         }
     }

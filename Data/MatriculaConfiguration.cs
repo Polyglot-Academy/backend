@@ -12,11 +12,9 @@ namespace PolyglotAPI.Data
             // Composite key
             builder.HasKey(m => new { m.AlunoId, m.CursoId });
 
-            // Property configurations
             builder.Property(m => m.DataMatricula)
                 .IsRequired();
 
-            // Table name (optional)
             builder.ToTable("Matricula");
         }
     }

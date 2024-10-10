@@ -11,7 +11,6 @@ namespace PolyglotAPI.Data
             // Primary Key
             builder.HasKey(c => c.Id);
 
-            // Property configurations
             builder.Property(c => c.Nome)
                 .IsRequired()
                 .HasMaxLength(100);
@@ -34,7 +33,6 @@ namespace PolyglotAPI.Data
             builder.Property(c => c.Valor)
                 .HasPrecision(18, 2);
 
-            // Table name (optional)
             builder.ToTable("Curso");
         }
     }

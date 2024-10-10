@@ -11,7 +11,6 @@ namespace PolyglotAPI.Data
             // Primary Key
             builder.HasKey(a => a.Id);
 
-            // Property configurations
             builder.Property(a => a.Nome)
                 .IsRequired()
                 .HasMaxLength(100);
@@ -26,7 +25,6 @@ namespace PolyglotAPI.Data
             builder.Property(a => a.Telefone)
                 .HasMaxLength(15);
 
-            // Table name (optional, EF will name it Aluno by default)
             builder.ToTable("Aluno");
         }
     }
