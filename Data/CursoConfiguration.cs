@@ -16,22 +16,22 @@ namespace PolyglotAPI.Data
                 .IsRequired()
                 .HasMaxLength(100);
 
-            builder.Property(c => c.descricao)
+            builder.Property(c => c.Descricao)
                 .HasMaxLength(500);
 
             builder.Property(c => c.Nivel)
                 .IsRequired();
 
-            builder.Property(c => c.duracao)
+            builder.Property(c => c.Duracao)
                 .IsRequired();
 
-            builder.Property(c => c.ProfessorID)
+            builder.Property(c => c.ProfessorId)
                 .IsRequired();
 
             builder.Property(c => c.DataInicio)
                 .IsRequired();
 
-            builder.Property(c => c.valor)
+            builder.Property(c => c.Valor)
                 .HasPrecision(18, 2);
 
             // Table name (optional)
