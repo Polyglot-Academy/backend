@@ -25,7 +25,7 @@ namespace PolyglotAPI.Controllers
             Console.WriteLine($"Number of aluno: {aluno.Count}");
             foreach (Aluno a in aluno)
             {
-                Console.WriteLine(a.Nome);
+                Console.WriteLine(a.nome);
             }
 
             var alunos = await _context.Aluno.ToListAsync();
