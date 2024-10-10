@@ -27,7 +27,7 @@ namespace PolyglotAPI.Data
                 .HasMaxLength(15);
 
             // Table name (optional, EF will name it Aluno by default)
-            builder.ToTable("Alunos");
+            builder.ToTable("Aluno");
         }
     }
 }

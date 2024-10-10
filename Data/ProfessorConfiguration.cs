@@ -23,7 +23,7 @@ namespace PolyglotAPI.Data
                 .IsRequired();
 
             // Table name (optional)
-            builder.ToTable("Professores");
+            builder.ToTable("Professor");
         }
     }
 }

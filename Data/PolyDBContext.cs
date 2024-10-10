@@ -10,10 +10,10 @@ namespace PolyglotAPI.Data
         {
         }
 
-        public DbSet<Aluno> Alunos { get; set; }
-        public DbSet<Curso> Cursos { get; set; }
-        public DbSet<Matricula> Matriculas { get; set; }
-        public DbSet<Professor> Professores { get; set; }
+        public DbSet<Aluno> Aluno { get; set; }
+        public DbSet<Curso> Curso { get; set; }
+        public DbSet<Matricula> Matricula { get; set; }
+        public DbSet<Professor> Professor { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

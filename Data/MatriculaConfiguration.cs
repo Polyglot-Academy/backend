@@ -17,7 +17,7 @@ namespace PolyglotAPI.Data
                 .IsRequired();
 
             // Table name (optional)
-            builder.ToTable("Matriculas");
+            builder.ToTable("Matricula");
         }
     }
 }

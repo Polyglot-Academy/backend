@@ -35,7 +35,7 @@ namespace PolyglotAPI.Data
                 .HasPrecision(18, 2);
 
             // Table name (optional)
-            builder.ToTable("Cursos");
+            builder.ToTable("Curso");
         }
     }
 }
