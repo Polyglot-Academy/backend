@@ -18,16 +18,27 @@ namespace PolyglotAPI.Controllers
 
         // GET: api/Aluno
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Aluno>>> GetAlunos()
+        public async Task<ActionResult<IEnumerable<Aluno>>> Getaluno()
         {
-            return await _context.Alunos.ToListAsync();
+
+            var aluno = await _context.Aluno.ToListAsync();
+            Console.WriteLine($"Number of aluno: {aluno.Count}");
+            foreach (Aluno a in aluno)
+            {
+                Console.WriteLine(a.Nome);
+            }
+
+            var alunos = await _context.Aluno.ToListAsync();
+
+            return Ok(aluno);
         }
+
 
         // GET: api/Aluno/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Aluno>> GetAluno(int id)
         {
-            var aluno = await _context.Alunos.FindAsync(id);
+            var aluno = await _context.Aluno.FindAsync(id);
 
             if (aluno == null)
             {
@@ -41,7 +52,7 @@ namespace PolyglotAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Aluno>> PostAluno(Aluno aluno)
         {
-            _context.Alunos.Add(aluno);
+            _context.Aluno.Add(aluno);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(GetAluno), new { id = aluno.Id }, aluno);
@@ -81,13 +92,13 @@ namespace PolyglotAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAluno(int id)
         {
-            var aluno = await _context.Alunos.FindAsync(id);
+            var aluno = await _context.Aluno.FindAsync(id);
             if (aluno == null)
             {
                 return NotFound();
             }
 
-            _context.Alunos.Remove(aluno);
+            _context.Aluno.Remove(aluno);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -95,7 +106,7 @@ namespace PolyglotAPI.Controllers
 
         private bool AlunoExists(int id)
         {
-            return _context.Alunos.Any(e => e.Id == id);
+            return _context.Aluno.Any(e => e.Id == id);
         }
     }
 }

@@ -21,14 +21,14 @@ namespace PolyglotAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Matricula>>> GetMatriculas()
         {
-            return await _context.Matriculas.ToListAsync();
+            return await _context.Matricula.ToListAsync();
         }
 
         // GET: api/Matricula/{AlunoId}/{CursoId}
         [HttpGet("{AlunoId}/{CursoId}")]
         public async Task<ActionResult<Matricula>> GetMatricula(int AlunoId, int CursoId)
         {
-            var matricula = await _context.Matriculas.FindAsync(AlunoId, CursoId);
+            var matricula = await _context.Matricula.FindAsync(AlunoId, CursoId);
 
             if (matricula == null)
             {
@@ -42,7 +42,7 @@ namespace PolyglotAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Matricula>> PostMatricula(Matricula matricula)
         {
-            _context.Matriculas.Add(matricula);
+            _context.Matricula.Add(matricula);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(GetMatricula), new { AlunoId = matricula.AlunoId, CursoId = matricula.CursoId }, matricula);
@@ -52,13 +52,13 @@ namespace PolyglotAPI.Controllers
         [HttpDelete("{AlunoId}/{CursoId}")]
         public async Task<IActionResult> DeleteMatricula(int AlunoId, int CursoId)
         {
-            var matricula = await _context.Matriculas.FindAsync(AlunoId, CursoId);
+            var matricula = await _context.Matricula.FindAsync(AlunoId, CursoId);
             if (matricula == null)
             {
                 return NotFound();
             }
 
-            _context.Matriculas.Remove(matricula);
+            _context.Matricula.Remove(matricula);
             await _context.SaveChangesAsync();
 
             return NoContent();

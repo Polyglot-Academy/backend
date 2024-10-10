@@ -21,14 +21,14 @@ namespace PolyglotAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Professor>>> GetProfessores()
         {
-            return await _context.Professores.ToListAsync();
+            return await _context.Professor.ToListAsync();
         }
 
         // GET: api/Professor/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Professor>> GetProfessor(int id)
         {
-            var professor = await _context.Professores.FindAsync(id);
+            var professor = await _context.Professor.FindAsync(id);
 
             if (professor == null)
             {
@@ -42,7 +42,7 @@ namespace PolyglotAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Professor>> PostProfessor(Professor professor)
         {
-            _context.Professores.Add(professor);
+            _context.Professor.Add(professor);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(GetProfessor), new { id = professor.Id }, professor);
@@ -82,12 +82,12 @@ namespace PolyglotAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProfessor(int id)
         {
-            var professor = await _context.Professores.FindAsync(id);
+            var professor = await _context.Professor.FindAsync(id);
             if (professor == null)
             {
                 return NotFound();
             }
-            _context.Professores.Remove(professor);
+            _context.Professor.Remove(professor);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -95,7 +95,7 @@ namespace PolyglotAPI.Controllers
 
         private bool ProfessorExists(int id)
         {
-            return _context.Professores.Any(e => e.Id == id);
+            return _context.Professor.Any(e => e.Id == id);
         }
     }
 }
