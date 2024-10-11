@@ -22,6 +22,10 @@ namespace PolyglotAPI.Data
                 .IsRequired()
                 .HasMaxLength(100);
 
+            builder.Property(a => a.Senha)
+                .IsRequired()
+                .HasMaxLength(100);
+
             builder.Property(a => a.Telefone)
                 .HasMaxLength(15);
 
