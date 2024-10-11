@@ -15,6 +15,14 @@ namespace PolyglotAPI.Data
                 .IsRequired()
                 .HasMaxLength(100);
 
+            builder.Property(p => p.Email)
+                .IsRequired()
+                .HasMaxLength(100);
+
+            builder.Property(p => p.Senha)
+                .IsRequired()
+                .HasMaxLength(100);
+
             builder.Property(p => p.Especializacao)
                 .HasMaxLength(150);
 
