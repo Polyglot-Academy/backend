@@ -12,7 +12,7 @@ using PolyglotAPI.Data;
 namespace PolyglotAPI.Migrations
 {
     [DbContext(typeof(PolyDBContext))]
-    [Migration("20241010222618_InitialMigration")]
+    [Migration("20241011130236_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -46,6 +46,11 @@ namespace PolyglotAPI.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
 
+                    b.Property<string>("Senha")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
                     b.Property<string>("Telefone")
                         .IsRequired()
                         .HasMaxLength(15)
@@ -67,26 +72,27 @@ namespace PolyglotAPI.Migrations
                     b.Property<DateTime>("DataInicio")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<int>("Nivel")
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("varchar(500)");
+
+                    b.Property<int>("Duracao")
                         .HasColumnType("int");
+
+                    b.Property<string>("Nivel")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
 
-                    b.Property<int>("ProfessorID")
+                    b.Property<int>("ProfessorId")
                         .HasColumnType("int");
 
-                    b.Property<string>("descricao")
-                        .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("varchar(500)");
-
-                    b.Property<double>("duracao")
-                        .HasColumnType("double");
-
-                    b.Property<double>("valor")
+                    b.Property<double>("Valor")
                         .HasPrecision(18, 2)
                         .HasColumnType("double");
 
@@ -119,15 +125,25 @@ namespace PolyglotAPI.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
                     b.Property<string>("Especializacao")
                         .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("varchar(150)");
 
-                    b.Property<int>("Experencia")
+                    b.Property<int>("Experiencia")
                         .HasColumnType("int");
 
                     b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("Senha")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");

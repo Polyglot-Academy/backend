@@ -26,6 +26,8 @@ namespace PolyglotAPI.Migrations
                     DataNascimento = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Email = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
+                    Senha = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     Telefone = table.Column<string>(type: "varchar(15)", maxLength: 15, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
@@ -43,13 +45,14 @@ namespace PolyglotAPI.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Nome = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    descricao = table.Column<string>(type: "varchar(500)", maxLength: 500, nullable: false)
+                    Descricao = table.Column<string>(type: "varchar(500)", maxLength: 500, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Nivel = table.Column<int>(type: "int", nullable: false),
-                    duracao = table.Column<double>(type: "double", nullable: false),
-                    ProfessorID = table.Column<int>(type: "int", nullable: false),
+                    Nivel = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Duracao = table.Column<int>(type: "int", nullable: false),
+                    ProfessorId = table.Column<int>(type: "int", nullable: false),
                     DataInicio = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    valor = table.Column<double>(type: "double", precision: 18, scale: 2, nullable: false)
+                    Valor = table.Column<double>(type: "double", precision: 18, scale: 2, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -79,9 +82,13 @@ namespace PolyglotAPI.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Nome = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
+                    Email = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Senha = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     Especializacao = table.Column<string>(type: "varchar(150)", maxLength: 150, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Experencia = table.Column<int>(type: "int", nullable: false)
+                    Experiencia = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
