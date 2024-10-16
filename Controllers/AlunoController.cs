@@ -47,6 +47,26 @@ namespace PolyglotAPI.Controllers
 
             return aluno;
         }
+        
+        // POST: api/Aluno
+        [HttpPost("Login")]
+        public async Task<IActionResult> verificaEmail(string email, string senha)
+        {
+
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(senha))
+            {
+                return BadRequest("O email e a senha são campos obrigatórios.");
+            }
+
+            var AlunoEmail = await _context.Aluno.FirstOrDefaultAsync(u => u.Email.ToLower() == email.ToLower());
+
+            if (AlunoEmail == null || AlunoEmail.Senha != senha)
+            {
+                return Unauthorized("Email ou senha invalídos.");
+            }
+
+            return Ok("Login efetuado com sucesso.");
+        }
 
         // POST: api/Aluno
         [HttpPost]
