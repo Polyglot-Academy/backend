@@ -61,6 +61,15 @@ namespace PolyglotAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Professor>> PostProfessor(Professor professor)
         {
+
+            foreach (Professor p in _context.Professor)
+            {
+                if (professor.Email == p.Email)
+                {
+                    return BadRequest("Esse e-mail ja está sendo ultilizado");
+                }
+            }
+
             _context.Professor.Add(professor);
             await _context.SaveChangesAsync();
 
