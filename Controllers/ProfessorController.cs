@@ -39,22 +39,24 @@ namespace PolyglotAPI.Controllers
         }
         // POST: api/Professor
         [HttpPost("Login")]
-            public async Task<IActionResult> verificaEmail(string email, string senha)
-            {
-            var ProfessorEmail = await _context.Professor.FirstOrDefaultAsync(u => u.Email.ToLower() == email.ToLower());
-            
+        public async Task<IActionResult> verificaEmail(string email, string senha)
+        {
+
             if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(senha))
-                {
-                    return BadRequest("O email e a senha são campos obrigatórios.");
-                }
-
-                if (ProfessorEmail.Senha != senha)
-                {
-                    return Unauthorized("Email ou senha invalídos.");
-                }
-
-                return Ok("Login efetuado com sucesso.");
+            {
+                return BadRequest("O email e a senha são campos obrigatórios.");
             }
+
+            var ProfessorEmail = await _context.Professor.FirstOrDefaultAsync(u => u.Email.ToLower() == email.ToLower());
+
+            if (ProfessorEmail == null ||  ProfessorEmail.Senha != senha)
+            {
+                return Unauthorized("Email ou senha invalídos.");
+            }
+
+            return Ok("Login efetuado com sucesso.");
+        }
+
         // POST: api/Professor
         [HttpPost]
         public async Task<ActionResult<Professor>> PostProfessor(Professor professor)
